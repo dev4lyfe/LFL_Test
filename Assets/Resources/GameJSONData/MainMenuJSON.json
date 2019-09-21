@@ -1,5 +1,7 @@
 {
-  "Version": "1.0.0.0",
-  "HighScore": 1729,
-  "Title": "PumpkinShooter"
+  "TitleText": "Pumpkin Shooter",
+  "HighScoreText": "High Score",
+  "VersionText": Version,
+  "VersionNumber": 0.9,
+  "StartButtonText": "Start"
 }
