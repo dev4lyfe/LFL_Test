@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using SimpleJSON;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -36,9 +37,15 @@ public class MainMenu : MonoBehaviour
             if (_highScoreText) _highScoreText.text = mainMenuData["HighScoreText"].Value;
             if (_versionText) _versionText.text = mainMenuData["VersionText"].Value;
             if(_versionNumber) _versionNumber.text = mainMenuData["VersionNumber"].Value;
-            if (_startButtonText) _startButtonText.text = mainMenuData["VersionNumber"].Value;
+            if (_startButtonText) _startButtonText.text = mainMenuData["StartButtonText"].Value;
 
         }
+    }
+
+    public void LoadLevel(string inSceneName)
+    {
+        SceneManager.LoadScene(inSceneName);
+
     }
 
     // Update is called once per frame
