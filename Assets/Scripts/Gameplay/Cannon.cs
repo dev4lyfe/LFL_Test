@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SimpleJSON;
+
 
 public class Cannon : MonoBehaviour
 {
     [Header("Cannon Motion")]
     [SerializeField] private Transform _cannonTransform = null;
     [SerializeField] private Transform _cannonballSpawnPoint = null;
-    [SerializeField] private float _rotationRate = 45.0f;
+
+
     [Header("Cannon Firing")]
     [SerializeField] private GameObject _cannonballPrefab = null;
-    [SerializeField] private float _cannonballFireVelocity = 50.0f;
-    [SerializeField] private float _rateOfFire = 0.33f;
+
+    //Data Driven Variables
+    private float _rotationRate;
+    private float _cannonballFireVelocity;
+    private float _rateOfFire;
 
     private float _timeOfLastFire = 0.0f;
     
@@ -19,6 +25,13 @@ public class Cannon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        object JSONobj = Resources.Load("GameJSONData/CannonJSON");
+        var gameplayData = JSON.Parse(JSONobj.ToString());
+
+        _rotationRate = gameplayData["RotationRate"].AsFloat;
+        _cannonballFireVelocity = gameplayData["CannonballFireVelocity"].AsFloat;
+        _rateOfFire = gameplayData["RateOfFIre"].AsFloat;
+
         FindObjectOfType<GameSession>().OnSessionEnd += () => { enabled = false; };
     }
 

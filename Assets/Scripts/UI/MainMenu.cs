@@ -45,7 +45,6 @@ public class MainMenu : MonoBehaviour
     public void LoadLevel(string inSceneName)
     {
         SceneManager.LoadScene(inSceneName);
-
     }
 
     // Update is called once per frame
