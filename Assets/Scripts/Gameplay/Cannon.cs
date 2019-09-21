@@ -30,7 +30,7 @@ public class Cannon : MonoBehaviour
 
         _rotationRate = gameplayData["RotationRate"].AsFloat;
         _cannonballFireVelocity = gameplayData["CannonballFireVelocity"].AsFloat;
-        _rateOfFire = gameplayData["RateOfFIre"].AsFloat;
+        _rateOfFire = gameplayData["RateOfFire"].AsFloat;
 
         FindObjectOfType<GameSession>().OnSessionEnd += () => { enabled = false; };
     }

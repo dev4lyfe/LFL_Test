@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SimpleJSON;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Score")]
-    public int scoreValue = 100;
-
-    [Header("Movement")]
-    [SerializeField] private float _verticalAmplitude = 2.5f;
-    [SerializeField] private float _verticalFrequency = 2.5f;
+    //Data Driven Values
+    [HideInInspector]
+    public int scoreValue;
+    private float _verticalAmplitude;
+    private float _verticalFrequency;
 
     [Header("Physics")]
     [SerializeField] private Rigidbody _rigidBody = null;
@@ -18,6 +18,12 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        object JSONobj = Resources.Load("GameJSONData/EnemyJSON");
+        var enemyData = JSON.Parse(JSONobj.ToString());
+
+        scoreValue = enemyData["ScoreValue"].AsInt;
+        _verticalAmplitude = enemyData["VerticalAmplitude"].AsFloat;
+        _verticalFrequency = enemyData["VerticalFrequency"].AsFloat;
         _startPosition = transform.position;
     }
 
