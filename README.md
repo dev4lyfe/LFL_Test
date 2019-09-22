@@ -2,7 +2,7 @@ Changes:
 
 The first change I made was importing SimpleJSON into the Plugins folder.
 
-Created a folder in Resources called GameJSONData and added a file all of the JSON files to that.
+Created a folder in Resources called GameJSONData and added all of the JSON files to that.
 
 Redid the layout in mainmenu and made all fields read from JSON apart from high score, which will read from playerprefs.
 
@@ -24,4 +24,8 @@ I left the project structure more or less same apart from adding a subfolder to 
 
 I chose the auto rotation polish task.
 
-Last bit of info - I found myself wishing that I had a more streamlined way of reading in the JSON info - I basically read it in in the start fnc of each relevant class, but found myself writing the same code a lot. That would be the first thing I would think about refactoring.
+Other notes:
+
+My biggest time sink as getting SimpleJSON to work. Everything else was straightforward.
+
+I found myself wishing that I had a more streamlined way of reading in the JSON info - I basically read it in in the start fnc of each relevant class, but found myself writing the same code a lot. That would be the first thing I would think about refactoring.
