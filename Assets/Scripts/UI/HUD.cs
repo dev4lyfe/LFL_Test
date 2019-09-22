@@ -16,8 +16,14 @@ public class HUD : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
+        _scoreValue.text = "0";
         _gameSession.OnSessionEnd += HandleSessionEnded;
     }
+
+    public void SetScoreText(float val)
+    {
+        _scoreValue.text = val.ToString();
+    }    
 
     string GetFormattedTimeFromSeconds( float seconds )
     {
@@ -34,6 +40,6 @@ public class HUD : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        _timeRemainingValue.text = GetFormattedTimeFromSeconds(_gameSession.timeLeft);
+        _timeRemainingValue.text = GetFormattedTimeFromSeconds(_gameSession._timeLeft);
     }
 }

@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     //Data Driven Values
     [HideInInspector]
-    public int scoreValue;
+    public int _scoreValue;
     private float _verticalAmplitude;
     private float _verticalFrequency;
 
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         object JSONobj = Resources.Load("GameJSONData/EnemyJSON");
         var enemyData = JSON.Parse(JSONobj.ToString());
 
-        scoreValue = enemyData["ScoreValue"].AsInt;
+        _scoreValue = enemyData["ScoreValue"].AsInt;
         _verticalAmplitude = enemyData["VerticalAmplitude"].AsFloat;
         _verticalFrequency = enemyData["VerticalFrequency"].AsFloat;
         _startPosition = transform.position;
@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         _rigidBody.useGravity = true;
+        GameSession.s_instance.AddScore(_scoreValue);
         Destroy(this);
     }
 

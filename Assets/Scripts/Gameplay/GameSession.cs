@@ -10,8 +10,26 @@ public class GameSession : MonoBehaviour
     public System.Action OnSessionStart;
     public System.Action OnSessionEnd;
 
+    public HUD hud;
+
     [HideInInspector]//since this will be data driven
-    public float timeLeft = 0;
+    public float _timeLeft = 0;
+
+    float _gameSessionScore = 0;
+
+    //create singleton so enemy's can notify gamesession when they are killed
+    public static GameSession s_instance;
+    private void Awake()
+    {
+        if (!s_instance)
+        {
+            s_instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     public enum SessionState
     {
@@ -27,7 +45,7 @@ public class GameSession : MonoBehaviour
     {
         object JSONobj = Resources.Load("GameJSONData/GameSessionJSON");
         var gamesessionData = JSON.Parse(JSONobj.ToString());
-        timeLeft = gamesessionData["GameSessionLength"].AsFloat;
+        _timeLeft = gamesessionData["GameSessionLength"].AsFloat;
         StartSession();
     }
 
@@ -36,20 +54,30 @@ public class GameSession : MonoBehaviour
         SceneManager.LoadScene(inSceneName);
     }
 
+    public void AddScore(float val)
+    {
+        _gameSessionScore += val;
+        if(hud)
+        {
+            hud.SetScoreText(_gameSessionScore);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         if( _state == SessionState.Active )
         {
-            timeLeft -= Time.deltaTime;
+            _timeLeft -= Time.deltaTime;
             
-            if( timeLeft <= 0 )
+            if( _timeLeft <= 0 )
             {
-                timeLeft = 0;
+                _timeLeft = 0;
                 EndSession();
             }
         }
     }
+
 
 
     void StartSession()
