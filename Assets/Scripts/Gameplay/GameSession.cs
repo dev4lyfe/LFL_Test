@@ -15,7 +15,7 @@ public class GameSession : MonoBehaviour
     [HideInInspector]//since this will be data driven
     public float _timeLeft = 0;
 
-    float _gameSessionScore = 0;
+    int _gameSessionScore = 0;
 
     //create singleton so enemy's can notify gamesession when they are killed
     public static GameSession s_instance;
@@ -54,7 +54,7 @@ public class GameSession : MonoBehaviour
         SceneManager.LoadScene(inSceneName);
     }
 
-    public void AddScore(float val)
+    public void AddScore(int val)
     {
         _gameSessionScore += val;
         if(hud)
@@ -92,7 +92,12 @@ public class GameSession : MonoBehaviour
 
     void EndSession()
     {
-        if( OnSessionEnd != null )
+        int highScore = PlayerPrefs.GetInt("highScore");
+        if (_gameSessionScore > highScore)
+        {
+            PlayerPrefs.SetInt("highScore", _gameSessionScore);
+        }
+        if ( OnSessionEnd != null )
         {
             OnSessionEnd();
         }

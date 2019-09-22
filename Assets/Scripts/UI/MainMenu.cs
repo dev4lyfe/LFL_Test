@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         //Read in JSON data for main menu
-        if(_highScoreText) _highScoreText.text = PlayerPrefs.HasKey("highScore") ? PlayerPrefs.GetInt("highScore").ToString() : 0.ToString();
+        if (_highScoreValue) _highScoreValue.text = PlayerPrefs.HasKey("highScore") ? PlayerPrefs.GetInt("highScore").ToString() : 0.ToString();
         UpdateMainMenuData();
     }
 
