@@ -256,11 +256,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168370}
-  m_LocalRotation: {x: -0.000000037781966, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.16100001, z: 0.28899997}
+  m_LocalRotation: {x: -0.00000004470348, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.16100004, z: 0.28899997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7901281729418985123}
+  m_Father: {fileID: 1942345699146006649}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3383134
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 426884}
   - component: {fileID: 2295842770789856697}
   m_Layer: 0
-  m_Name: Cannon
+  m_Name: Cannon_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,8 +360,9 @@ MonoBehaviour:
   _cannonballSpawnPoint: {fileID: 2239193771361150649}
   _cannonballPrefab: {fileID: 8552327234751516704, guid: 3391994f746c7420993a17be4b3e58e2,
     type: 3}
-  _cannonballFireVelocity: 20
-  _rateOfFire: 0.33
+  _spawner1: {fileID: 0}
+  _spawner2: {fileID: 0}
+  _spawner3: {fileID: 0}
 --- !u!1 &2268454128897900505
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,11 +390,42 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.734, z: 0.045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 408154}
-  - {fileID: 2239193771361150649}
+  - {fileID: 1942345699146006649}
   m_Father: {fileID: 426884}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
+--- !u!1 &4412400773469982369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1942345699146006649}
+  m_Layer: 0
+  m_Name: Cannon_Rot_Offset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1942345699146006649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412400773469982369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 408154}
+  - {fileID: 2239193771361150649}
+  m_Father: {fileID: 7901281729418985123}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5386438022964574383
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,11 +449,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5386438022964574383}
-  m_LocalRotation: {x: -0.00000003774895, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5889999, z: 1.565}
+  m_LocalRotation: {x: -0.00000004470348, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.589, z: 1.565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7901281729418985123}
+  m_Father: {fileID: 1942345699146006649}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7529765677929247725

@@ -12,3 +12,6 @@ Next I made the EnemySpawner's use a timer to respawn the Enemy which is activat
 
 Added a singleton to GameSession so that enemies can call it to add score when they die.
 
+Nexted I added in high score tracking using player prefs.
+
+Added in Cannon auto rotation to Cannon.cs and modified Cannon prefab transform hierarchy to make my method of rotation easier math wise. 
